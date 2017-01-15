@@ -1,0 +1,18 @@
+image: node:6.9.3
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+
+  script:
+  - npm install quasar-cli -g
+  - npm install
+  - quasar build
+  - mkdir public
+  - mv dist/* public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
